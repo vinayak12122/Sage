@@ -1,0 +1,22 @@
+import torch
+
+TOKENIZER_NAME = "HuggingFaceTB/SmolLM2-135M"
+
+DIM = 768
+NUM_HEADS = 12
+NUM_KV_HEADS = 4
+NUM_LAYERS = 12
+FFN_DIM = 3072
+MAX_SEQ_LEN = 1024
+DROPOUT = 0.0
+
+MAX_NEW_TOKENS = 256
+TEMPERATURE = 0.2
+TOP_K = 50
+TOP_P = 0.9
+REPETITION_PENALTY = 1.1
+NO_REPEAT_NGRAM_SIZE = 4
+MAX_HISTORY_MESSAGES = 1
+MAX_QUEUE = 4
+
+DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")

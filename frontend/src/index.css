@@ -1,0 +1,426 @@
+@import "tailwindcss";
+
+:root {
+    --bg: #eef0eb;
+    --ink: #1a211c;
+    --muted: #6b7670;
+    --accent: #5e7c5f;
+    --line: rgba(26, 33, 28, 0.16);
+    --field: rgba(26, 33, 28, 0.04);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.title-font {
+    font-family: "Instrument Serif", serif;
+}
+
+.normal-font{
+    font-family:
+            "Instrument Sans",
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            "Segoe UI",
+            Helvetica,
+            Arial,
+            sans-serif;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-section p {
+    padding: 8px 20px;
+    background: #3b915913;
+    border-radius: 20px;
+    /* border: 0.5px solid #78d19715; */
+    cursor: pointer;
+    &:hover {
+        background: #3b915971;
+    }
+}
+
+body {
+    background: var(--bg);
+    color: var(--ink);
+
+    font-family:
+        "Instrument Sans",
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0f1411;
+        --ink: #e6ebe3;
+        --muted: #8a968c;
+        --accent: #8fb489;
+        --line: rgba(230, 235, 227, 0.16);
+        --field: rgba(230, 235, 227, 0.05);
+    }
+}
+
+[data-theme="dark"] {
+    --bg: #0f1411;
+    --ink: #e6ebe3;
+    --muted: #8a968c;
+    --accent: #8fb489;
+    --line: rgba(230, 235, 227, 0.16);
+    --field: rgba(230, 235, 227, 0.05);
+}
+
+
+.sage-intro {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg);
+    color: var(--ink);
+
+    font-family:
+        "Instrument Sans",
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.sage-stage {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;
+
+    gap: 20px;
+    padding: 0 30px 30px;
+
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+}
+
+.sage-scene {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    overflow: visible;
+}
+
+.sage-scene .label {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 13px;
+
+    fill: var(--muted);
+}
+
+.sage-scene .readout {
+    font-family: "Instrument Serif", serif;
+    font-size: 34px;
+
+    fill: var(--ink);
+}
+
+.sage-scene .readout-sub {
+    font-family: "Instrument Sans", sans-serif;
+    font-size: 13px;
+
+    fill: var(--muted);
+}
+
+.sage-scene .glyph {
+    font-family: "Instrument Serif", serif;
+
+    fill: var(--ink);
+}
+
+
+.sage-scene .curve {
+    fill: none;
+
+    stroke: var(--accent);
+    stroke-width: 1.6;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.sage-scene .rule {
+    stroke: var(--line);
+    stroke-width: 1;
+}
+
+.sage-scene .head {
+    fill: var(--accent);
+}
+
+.sage-below {
+    display: flex;
+    flex-direction: column;
+
+    gap: clamp(18px, 3vh, 30px);
+
+    padding-left: clamp(0px, 2vw, 10px);
+}
+
+.sage-tagline {
+    font-size: clamp(17px, 2.4vw, 25px);
+
+    line-height: 1.35;
+
+    margin: 0;
+
+    max-width: 24ch;
+}
+
+
+.sage-tagline .w {
+    opacity: 0;
+
+    display: inline-block;
+}
+
+.sage-tagline .i {
+    color: var(--accent);
+}
+
+.sage-tagline .caret {
+    display: inline-block;
+
+    width: 0.07em;
+    height: 1em;
+
+    background: var(--accent);
+
+    vertical-align: -0.12em;
+
+    margin-left: 0.12em;
+
+    opacity: 0;
+}
+
+
+.sage-cta {
+    align-self: flex-start;
+    opacity: 0;
+    font: inherit;
+    font-size: 15px;
+    color: var(--ink);
+    padding: 12px 22px;
+    cursor: pointer;
+    transition:
+        border-color 0.18s ease,
+        background 0.18s ease,
+        transform 0.18s ease;
+}
+
+.sage-cta:focus-visible {
+    outline: 2px solid var(--accent);
+
+    outline-offset: 3px;
+}
+
+.sage-footer {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding:
+        0 clamp(20px, 4vw, 56px) clamp(18px, 3vh, 28px);
+
+    width: 100%;
+    max-width: 1180px;
+
+    margin: 0 auto;
+
+    font-size: 13px;
+
+    color: var(--muted);
+}
+
+.sage-ghost {
+    font: inherit;
+
+    color: var(--muted);
+
+    background: none;
+
+    border: 0;
+
+    padding: 6px 2px;
+
+    cursor: pointer;
+
+    border-bottom: 1px solid transparent;
+
+    transition:
+        color 0.18s ease,
+        border-color 0.18s ease;
+}
+
+
+.sage-ghost:hover {
+    color: var(--ink);
+
+    border-bottom-color: var(--line);
+}
+
+
+.sage-ghost:focus-visible {
+    outline: 2px solid var(--accent);
+
+    outline-offset: 2px;
+}
+
+
+@media (max-width: 720px) {
+
+    .sage-stage {
+        padding: 0 16px 20px;
+
+        gap: 14px;
+    }
+
+    .sage-below {
+        padding-left: 0;
+
+        gap: 20px;
+    }
+
+    .sage-tagline {
+        font-size: 18px;
+    }
+
+    .sage-footer {
+        padding:
+            0 20px 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+    }
+
+    .sage-cta,
+    .sage-ghost {
+        transition: none;
+    }
+}
+
+
+/* INTRO CSS */
+.sg-root {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 3vh, 28px);
+    background: var(--bg);
+    color: var(--ink);
+    font-family:
+        "Instrument Sans",
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    padding: 0 clamp(16px, 5vw, 48px);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.sg-letters {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    font-family: "Instrument Serif", serif;
+    font-weight: 400;
+    font-size: clamp(88px, 26vw, 200px);
+    line-height: 1;
+    color: var(--ink);
+}
+
+.sg-letter {
+    display: inline-block;
+    min-width: 0.5em;
+    opacity: 0;
+}
+
+.sg-tagline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.1em 0.45em;
+    max-width: 100%;
+    margin: 0;
+    font-size: clamp(17px, 3.4vw, 25px);
+    line-height: 1.35;
+}
+
+.sg-word {
+    display: inline-block;
+    opacity: 0;
+}
+
+.sg-word .sg-i {
+    color: var(--accent);
+}
+
+.sg-caret {
+    display: inline-block;
+    width: 0.07em;
+    height: 1em;
+    background: var(--accent);
+    vertical-align: -0.12em;
+    margin-left: 0.12em;
+    opacity: 0;
+}
